@@ -1,0 +1,292 @@
+/* style.css */
+
+/* --- Animaciones Modernas --- */
+
+/* Fade In con desplazamiento */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide in desde la izquierda */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in desde la derecha */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Zoom in suave */
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Bounce suave */
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Pulse */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Glow */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(140, 110, 74, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(140, 110, 74, 0.8); }
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Rotate In */
+@keyframes rotateIn {
+  from { opacity: 0; transform: rotate(-10deg) scale(0.9); }
+  to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Clases de animación */
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.5s ease-out forwards;
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-rotateIn {
+  animation: rotateIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-shimmer {
+  background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0) 40%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* --- Transiciones Suaves en Elementos Interactivos --- */
+button, a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:active, a:active {
+  transform: scale(0.98);
+}
+
+input, textarea, select {
+  transition: all 0.3s ease;
+  border-color: var(--color-border-light);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #8C6E4A;
+  box-shadow: 0 0 0 3px rgba(140, 110, 74, 0.1);
+}
+
+/* --- Efectos Hover Modernos --- */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(140, 110, 74, 0.4);
+}
+
+/* --- Efecto Gradient Animado --- */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-animated {
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* --- Elementos que se animan al hacer scroll --- */
+[data-animate] {
+  opacity: 1;
+}
+
+[data-animate-item] {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+/* --- Hero Section con Imagen de Fondo --- */
+#hero-section {
+  position: relative;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+/* Drop shadow para mejor legibilidad */
+.drop-shadow-2xl {
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.drop-shadow-lg {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Interruptor Modo Oscuro --- */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* ... más estilos en el <head> de tailwind ... */
+}
+
+/* --- Insignia del Carrito --- */
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #E53E3E;
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.3);
+}
+.cart-badge.active {
+  transform: scale(1);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* --- Lógica Menú Móvil --- */
+.mobile-menu {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-menu.active {
+    display: flex;
+  }
+}
+
+/* --- Carrito Modal (Sidebar) --- */
+#cart-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#cart-modal-container.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#cart-modal {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 90%;
+  max-width: 400px;
+  height: 100%;
+  background-color: var(--color-background-light);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+}
+#cart-modal-container.active #cart-modal {
+  right: 0;
+}
+
+/* Estilos para el modo oscuro del modal */
+.dark #cart-modal {
+  background-color: var(--color-background-dark);
+}
+
+/* Mejora de contraste para texto en el modal */
+#cart-modal p, #cart-modal h3, #cart-modal span {
+  color: var(--text-light);
+}
+
+.dark #cart-modal p,
+.dark #cart-modal h3,
+.dark #cart-modal span {
+  color: var(--text-dark);
+}
+
+/* Hacer el texto más oscuro en modo claro */
+#cart-modal .font-bold {
+  color: #1C1A19;
+  font-weight: 700;
+}
+
+.dark #cart-modal .font-bold {
+  color: #F8F5F2;
+  font-weight: 700;
+}

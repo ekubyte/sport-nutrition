@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SPORT NUTRITION - Energía Ancestral de los Andes</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#8C6E4A",
+                    "background-light": "#F8F5F2",
+                    "background-dark": "#1C1A19",
+                    "text-light": "#2E2823",
+                    "text-dark": "#F8F5F2",
+                    "card-light": "#FFFFFF",
+                    "card-dark": "#292624",
+                    "border-light": "#EAE5E1",
+                    "border-dark": "#403A36",
+                    "text-secondary-light": "#5C4A34",
+                    "text-secondary-dark": "#B8A897",
+                    "accent-green": "#5F6F52"
+                },
+                fontFamily: {
+                    "display": ["Sora", "sans-serif"],
+                    "body": ["Inter", "sans-serif"]
+                },
+                borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                // Variables CSS para el modal
+                backgroundColor: theme => ({
+                    ...theme('colors'),
+                    'var(--color-background-light)': '#F8F5F2',
+                    'var(--color-background-dark)': '#1C1A19',
+                }),
+            },
+        },
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    
+    <link href="style.css" rel="stylesheet"/>
+    <script src="script.js" defer></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark smooth-scroll">
+<div class="relative flex min-h-screen w-full flex-col">
+
+    <header class="sticky top-0 z-50 w-full border-b border-border-light dark:border-border-dark bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex h-16 items-center justify-between">
+                <a class="flex items-center gap-4 text-text-light dark:text-text-dark" href="index.html">
+                    <div class="size-6 text-accent-green">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_6_319)"><path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path></g></svg>
+                    </div>
+                    <h2 class="font-display text-lg font-bold tracking-tight hidden sm:block">SPORT NUTRITION</h2>
+                </a>
+                
+                <nav class="hidden items-center gap-8 md:flex">
+                    <a class="text-sm font-medium hover:text-primary" href="index.html">Inicio</a>
+                    <a class="text-sm font-medium hover:text-primary" href="quienes-somos.html">Quiénes Somos</a>
+                    <a class="text-sm font-medium hover:text-primary" href="productos.html">Productos</a>
+                    <a class="text-sm font-medium hover:text-primary" href="pedidos.html">Hacer Pedido</a>
+                    <a class="text-sm font-medium hover:text-primary" href="ubicacion.html">Ubicación</a>
+                </nav>
+                
+                <div class="flex items-center gap-2">
+                    <button id="dark-mode-toggle" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-text-light dark:text-text-dark transition-colors hover:bg-primary/20">
+                        <span class="material-symbols-outlined text-xl block dark:hidden">light_mode</span>
+                        <span class="material-symbols-outlined text-xl hidden dark:block">dark_mode</span>
+                    </button>
+                    <button id="cart-btn" class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-text-light dark:text-text-dark transition-colors hover:bg-primary/20">
+                        <span class="material-symbols-outlined text-xl">shopping_cart</span>
+                        <span class="cart-badge" id="cart-count">0</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-text-light dark:text-text-dark transition-colors hover:bg-primary/20">
+                        <span class="material-symbols-outlined text-xl">menu</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mobile-menu flex-col gap-4 py-4 border-t border-border-light dark:border-border-dark md:hidden" id="mobile-menu">
+                <a class="text-sm font-medium hover:text-primary cursor-pointer py-2" href="index.html">Inicio</a>
+                <a class="text-sm font-medium hover:text-primary cursor-pointer py-2" href="quienes-somos.html">Quiénes Somos</a>
+                <a class="text-sm font-medium hover:text-primary cursor-pointer py-2" href="productos.html">Productos</a>
+                <a class="text-sm font-medium hover:text-primary cursor-pointer py-2" href="pedidos.html">Hacer Pedido</a>
+                <a class="text-sm font-medium hover:text-primary cursor-pointer py-2" href="ubicacion.html">Ubicación</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <section id="hero-section" class="relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&crop=entropy&cs=tinysrgb&q=80'); background-attachment: fixed;">
+            
+            <div class="relative container mx-auto px-4 py-20 sm:py-32 md:py-40">
+                <div class="relative flex min-h-[480px] flex-col items-center justify-center gap-6 text-center text-background-light">
+                    <h1 class="font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl animate-slideInLeft drop-shadow-2xl">
+                        ENERGÍA ANCESTRAL. <br> RENDIMIENTO MODERNO.
+                    </h1>
+                    <p class="max-w-2xl text-base sm:text-lg text-background-light/95 animate-slideInRight drop-shadow-lg">
+                        Destraba el poder de la quinua, la maca y la kiwicha. Snacks andinos puros para tu máximo rendimiento.
+                    </p>
+                    <a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-background-light text-base font-bold tracking-wide transition-transform hover:scale-110 font-display animate-bounceIn hover-glow drop-shadow-lg" href="productos.html" style="animation-delay: 200ms;">
+                        <span class="truncate">Descubre el Poder Andino</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Características Principales -->
+        <section class="py-16 sm:py-24 bg-background-light dark:bg-background-dark" data-animate>
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Característica 1 -->
+                    <div class="flex flex-col items-center gap-4 p-8 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:shadow-2xl transition-all duration-300 hover-lift group" data-animate-item>
+                        <div class="size-16 flex items-center justify-center rounded-full bg-accent-green/20 text-accent-green group-hover:bg-accent-green group-hover:text-background-light transition-all duration-300 scale-100 group-hover:scale-110" data-animate-item>
+                            <span class="material-symbols-outlined text-4xl">eco</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold">100% Natural</h3>
+                        <p class="text-center text-text-secondary-light dark:text-text-secondary-dark">
+                            Sin aditivos, sin preservantes. Solo ingredientes puros de los Andes peruanos.
+                        </p>
+                    </div>
+
+                    <!-- Característica 2 -->
+                    <div class="flex flex-col items-center gap-4 p-8 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:shadow-2xl transition-all duration-300 hover-lift group" data-animate-item>
+                        <div class="size-16 flex items-center justify-center rounded-full bg-primary/20 text-primary group-hover:bg-primary group-hover:text-background-light transition-all duration-300 scale-100 group-hover:scale-110" data-animate-item>
+                            <span class="material-symbols-outlined text-4xl">bolt</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold">Máximo Rendimiento</h3>
+                        <p class="text-center text-text-secondary-light dark:text-text-secondary-dark">
+                            Proteína completa, carbohidratos de larga duración y energía sostenida.
+                        </p>
+                    </div>
+
+                    <!-- Característica 3 -->
+                    <div class="flex flex-col items-center gap-4 p-8 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:shadow-2xl transition-all duration-300 hover-lift group" data-animate-item>
+                        <div class="size-16 flex items-center justify-center rounded-full bg-accent-green/20 text-accent-green group-hover:bg-accent-green group-hover:text-background-light transition-all duration-300 scale-100 group-hover:scale-110" data-animate-item>
+                            <span class="material-symbols-outlined text-4xl">heart_check</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold">Nutrición Inteligente</h3>
+                        <p class="text-center text-text-secondary-light dark:text-text-secondary-dark">
+                            Fórmulas ancestrales respaldadas por la ciencia moderna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Sobre Nosotros (Preview) -->
+        <section class="py-16 sm:py-24 bg-card-light dark:bg-card-dark" data-animate>
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col gap-6">
+                        <h2 class="font-display text-3xl sm:text-4xl font-extrabold leading-tight" data-animate-item>
+                            Nutrición que Nace de la Tierra
+                        </h2>
+                        <p class="text-base leading-relaxed text-text-secondary-light dark:text-text-secondary-dark">
+                            En SPORT NUTRITION creemos que los mejores alimentos para tu cuerpo vienen de la naturaleza. La quinua, la maca y la kiwicha han sido utilizadas por los guerreros y atletas andinos durante siglos.
+                        </p>
+                        <p class="text-base leading-relaxed text-text-secondary-light dark:text-text-secondary-dark">
+                            Hoy, recuperamos esta sabiduría ancestral para llevarte productos de la más alta calidad. Cada snack es cuidadosamente seleccionado y preparado para maximizar tu rendimiento.
+                        </p>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-accent-green text-2xl">check_circle</span>
+                                <span class="font-bold">Ingredientes de origen verificado</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-accent-green text-2xl">check_circle</span>
+                                <span class="font-bold">Proceso de producción artesanal</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-accent-green text-2xl">check_circle</span>
+                                <span class="font-bold">Empaque sostenible y ecológico</span>
+                            </div>
+                        </div>
+                        <a href="quienes-somos.html" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-accent-green text-background-light text-base font-bold tracking-wide transition-transform hover:scale-105 font-display w-fit">
+                            <span class="truncate">Conoce más sobre nosotros</span>
+                        </a>
+                    </div>
+                    <div class="bg-cover bg-center rounded-xl h-96 hover-lift transition-transform" style="background-image: linear-gradient(rgba(95, 111, 82, 0.3), rgba(95, 111, 82, 0.3)), url('https://images.pexels.com/photos/3289711/pexels-photo-3289711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-position: center;" data-animate-item>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Beneficios -->
+        <section class="py-16 sm:py-24 bg-background-light dark:bg-background-dark" data-animate>
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold leading-tight mb-4 animate-slideInLeft">
+                        ¿Por qué elegirnos?
+                    </h2>
+                    <p class="max-w-2xl mx-auto text-text-secondary-light dark:text-text-secondary-dark animate-slideInRight">
+                        Somos más que un proveedor de snacks. Somos guardianes de la nutrición andina.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Beneficio 1 -->
+                    <div class="flex gap-4 p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary transition-all duration-300 hover-lift group" data-animate-item>
+                        <div class="size-12 flex items-center justify-center rounded-lg bg-primary/20 text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-background-light transition-all duration-300">
+                            <span class="material-symbols-outlined">local_florist</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Origen Verificado</h4>
+                            <p class="text-text-secondary-light dark:text-text-secondary-dark">Trabajamos directamente con productores andinos certificados para garantizar la máxima calidad.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 2 -->
+                    <div class="flex gap-4 p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary transition-all duration-300 hover-lift group" data-animate-item>
+                        <div class="size-12 flex items-center justify-center rounded-lg bg-accent-green/20 text-accent-green flex-shrink-0 group-hover:bg-accent-green group-hover:text-background-light transition-all duration-300">
+                            <span class="material-symbols-outlined">science</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Respaldado por Ciencia</h4>
+                            <p class="text-text-secondary-light dark:text-text-secondary-dark">Cada fórmula ha sido desarrollada con asesoría de nutricionistas deportivos profesionales.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 3 -->
+                    <div class="flex gap-4 p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary transition-all duration-300 hover-lift group" data-animate-item>
+                        <div class="size-12 flex items-center justify-center rounded-lg bg-primary/20 text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-background-light transition-all duration-300">
+                            <span class="material-symbols-outlined">delivery_dining</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Entrega Rápida</h4>
+                            <p class="text-text-secondary-light dark:text-text-secondary-dark">Pedidos por WhatsApp con entrega en 24-48 horas en todo Cusco.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 4 -->
+                    <div class="flex gap-4 p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary transition-all duration-300 hover-lift group" data-animate-item>
+                        <div class="size-12 flex items-center justify-center rounded-lg bg-accent-green/20 text-accent-green flex-shrink-0 group-hover:bg-accent-green group-hover:text-background-light transition-all duration-300">
+                            <span class="material-symbols-outlined">thumb_up</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Garantía de Satisfacción</h4>
+                            <p class="text-text-secondary-light dark:text-text-secondary-dark">Si no estás satisfecho, te devolvemos tu dinero sin preguntas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección CTA -->
+        <section class="py-16 sm:py-24 bg-gradient-to-r from-accent-green to-primary/80 overflow-hidden relative" data-animate>
+            <!-- Elemento decorativo animado -->
+            <div class="absolute top-0 left-0 w-96 h-96 bg-background-light/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-float"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-background-light/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 animate-float" style="animation-delay: 1.5s;"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center flex flex-col gap-6 items-center">
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold leading-tight text-background-light animate-slideInLeft">
+                        ¿Listo para sentir la diferencia?
+                    </h2>
+                    <p class="max-w-2xl text-base text-background-light/90 animate-slideInRight">
+                        Descubre cómo el poder ancestral de los Andes puede transformar tu rendimiento.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="productos.html" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-background-light text-accent-green text-base font-bold tracking-wide transition-all hover:scale-110 hover:shadow-2xl font-display group" data-animate-item>
+                            <span class="group-hover:animate-pulse">Ver Productos</span>
+                        </a>
+                        <a href="ubicacion.html" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-background-light/20 border-2 border-background-light text-background-light text-base font-bold tracking-wide transition-all hover:scale-110 hover:bg-background-light/30 font-display group" data-animate-item>
+                            <span class="group-hover:animate-pulse">Conocer Ubicación</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <footer class="border-t border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark">
+        <div class="container mx-auto px-4 py-8">
+            <p class="text-sm text-center text-text-secondary-light dark:text-text-secondary-dark">
+                © 2025 SPORT NUTRITION. Nutrición que nace de la tierra.
+            </p>
+        </div>
+    </footer>
+
+</div>
+
+<div id="cart-modal-container">
+    <div id="cart-modal">
+        <div class="flex items-center justify-between p-4 border-b border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark">
+            <h3 class="font-display text-lg font-bold text-text-light dark:text-text-dark">Tu Carrito</h3>
+            <button id="close-cart-btn" class="size-8 rounded-full hover:bg-primary/20 flex items-center justify-center text-text-light dark:text-text-dark">
+                <span class="material-symbols-outlined text-xl">close</span>
+            </button>
+        </div>
+        
+        <div id="cart-body" class="flex-grow overflow-y-auto bg-background-light dark:bg-background-dark">
+            </div>
+        
+        <div id="cart-footer" class="p-4 border-t border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark">
+            <div class="flex justify-between items-center mb-4">
+                <span class="font-bold text-text-light dark:text-text-dark">Subtotal:</span>
+                <span id="cart-total" class="font-display text-xl font-bold text-primary">S/ 0.00</span>
+            </div>
+            <a href="pedidos.html" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-accent-green text-background-light text-base font-bold tracking-wide transition-transform hover:scale-105 font-display">
+                <span class="truncate">Finalizar Pedido (WhatsApp)</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
